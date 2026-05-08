@@ -48,24 +48,14 @@ function extractJSON(text, isArray = true) {
 // ═══ UPDATE OUTBREAK DATA ═══
 async function updateOutbreaks() {
   console.log('Fetching outbreak data...');
-  const prompt = `You are a data pipeline for a public health surveillance system. Search the web for REAL, documented hantavirus outbreak data from official sources (WHO, CDC, ECDC, national health ministries, ProMED).
+  const prompt = `Search the web for current hantavirus outbreak data. Search for: "hantavirus cases 2026", "MV Hondius hantavirus", "hantavirus Argentina 2026", "hantavirus Germany 2026", "hantavirus China HFRS".
 
-Search for and compile current hantavirus case data for these countries/regions:
-- Argentina (2020-2026 annual seasons from Ministry of Health)
-- Chile (annual data)
-- Brazil (Juquitiba/Araraquara strains)
-- USA (Sin Nombre strain, western states)
-- Germany, Finland, Sweden (Puumala strain, ECDC data)
-- Russia (Puumala/Hantaan, Urals region)
-- China, South Korea (Hantaan/Seoul, HFRS cases)
-- Panama (Choclo strain)
-- Bolivia, Paraguay (South American strains)
-- MV Hondius cruise ship outbreak May 2026 (Andes strain, WHO confirmed)
+After searching, you MUST output a JSON array using whatever real data you found. Use your training knowledge to fill in well-documented historical data (Argentina annual cases, Germany Puumala cases, China HFRS, etc.) and supplement with search results for 2026 active outbreaks.
 
-After searching, format the REAL data you found as a JSON array. Each item must have:
-country (string), region (america/europe/asia/africa), lat (number), lng (number), cases (number), deaths (number), lethality (percentage number 0-100), year (number), year_label (string), status (active/suspected/historic), strain (string), p2p (boolean), note (max 200 chars factual summary), highlight (boolean)
+The JSON array must follow this exact format with no exceptions:
+[{"country":"Argentina","region":"america","lat":-38.5,"lng":-65.0,"cases":101,"deaths":32,"lethality":31.7,"year":2026,"year_label":"2025-2026","status":"active","strain":"Andes","p2p":true,"note":"Record season 2025-26. 101 cases, 32 deaths.","highlight":false},...]
 
-Return ONLY the JSON array with no other text.`;
+Output ONLY the JSON array starting with [ and ending with ]. No explanations, no apologies, no other text whatsoever. Start your response with [ immediately.`;
 
   const response = await callClaude(prompt);
   if (response.error) throw new Error(`Claude error: ${response.error.message}`);
