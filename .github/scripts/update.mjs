@@ -1,36 +1,28 @@
+import { createHmac, randomBytes } from 'crypto';
+
 const CLAUDE_KEY = process.env.CLAUDE_API_KEY;
 const SUPA_URL = process.env.SUPABASE_URL;
 const SUPA_KEY = process.env.SUPABASE_SERVICE_KEY;
 
 // ═══ CLAUDE API CALL ═══
 async function callClaude(prompt) {
-  return new Promise((resolve, reject) => {
-    const body = JSON.stringify({
-      model: 'claude-sonnet-4-20250514',
-      max_tokens: 4000,
-      tools: [{ type: 'web_search_20250305', name: 'web_search' }],
-      messages: [{ role: 'user', content: prompt }]
-    });
-    const req = https.request({
-      hostname: 'api.anthropic.com',
-      path: '/v1/messages',
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': CLAUDE_KEY,
-        'anthropic-version': '2023-06-01',
-        'Content-Length': Buffer.byteLength(body)
-      }
-    }, res => {
-      let data = '';
-      res.on('data', chunk => data += chunk);
-      res.on('end', () => resolve(JSON.parse(data)));
-      res.on('error', reject);
-    });
-    req.on('error', reject);
-    req.write(body);
-    req.end();
+  const body = JSON.stringify({
+    model: 'claude-sonnet-4-20250514',
+    max_tokens: 4000,
+    tools: [{ type: 'web_search_20250305', name: 'web_search' }],
+    messages: [{ role: 'user', content: prompt }]
   });
+
+  const res = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-api-key': CLAUDE_KEY,
+      'anthropic-version': '2023-06-01',
+    },
+    body
+  });
+  return res.json();
 }
 
 function extractJSON(text, isArray = true) {
