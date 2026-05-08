@@ -51,7 +51,23 @@ async function supabaseInsert(table, rows) {
 
 async function updateOutbreaks() {
   console.log('Fetching outbreak data...');
-  const prompt = `Search the web for current hantavirus data. Then output ONLY a JSON array starting with [ — no other text before or after. Each item: {"country":"string","region":"america|europe|asia|africa","lat":0,"lng":0,"cases":0,"deaths":0,"lethality":0,"year":2026,"year_label":"string","status":"active|suspected|historic","strain":"Andes|Sin Nombre|Hantaan|Seoul|Puumala|Dobrava|Juquitiba|Araraquara|Choclo|Laguna Negra|Río Mamoré","p2p":false,"note":"string max 200 chars","highlight":false}. Include: Argentina 2020-2026, Chile, Brazil, USA, Germany, Finland, Sweden, Russia, China, South Korea, Panama, Bolivia, Paraguay, MV Hondius 2026, Switzerland, South Africa, Netherlands, UK, Singapore. Start response with [ immediately.`;
+  const prompt = `Search the web for current hantavirus data. Then output ONLY a JSON array starting with [ — no other text before or after.
+
+STATUS RULES — apply these strictly:
+- "active" = laboratory-confirmed case or death, officially reported by health authorities
+- "suspected" = unconfirmed, under investigation, or contact being monitored
+- "historic" = past seasons, not currently active
+
+MV Hondius 2026 specific rules:
+- South Africa: Dutch woman DIED in Johannesburg hospital, lab-confirmed = "active"
+- Switzerland: lab-confirmed patient in Zurich = "active"  
+- Netherlands: evacuated patients, confirmed = "active"
+- Germany: confirmed death on board = "active"
+- Singapore, France, Canada, UK contacts: NOT yet confirmed = "suspected"
+
+Each item: {"country":"string","region":"america|europe|asia|africa","lat":0,"lng":0,"cases":0,"deaths":0,"lethality":0,"year":2026,"year_label":"string","status":"active|suspected|historic","strain":"Andes|Sin Nombre|Hantaan|Seoul|Puumala|Dobrava|Juquitiba|Araraquara|Choclo|Laguna Negra|Río Mamoré","p2p":false,"note":"string max 200 chars","highlight":false}
+
+Include: Argentina 2020-2026, Chile, Brazil, USA, Germany, Finland, Sweden, Russia, China, South Korea, Panama, Bolivia, Paraguay, MV Hondius 2026, Switzerland, South Africa, Netherlands, UK, Singapore, France, Canada. Start response with [ immediately.`;
 
   const r = await callClaude(prompt);
   if (r.error) throw new Error(r.error.message);
