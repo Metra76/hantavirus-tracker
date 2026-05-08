@@ -1,4 +1,4 @@
-import { createHmac, randomBytes } from 'crypto';
+mport { createHmac, randomBytes } from 'crypto';
 
 const CLAUDE_KEY = process.env.CLAUDE_API_KEY;
 const SUPA_URL = process.env.SUPABASE_URL;
@@ -27,9 +27,23 @@ async function callClaude(prompt) {
 
 function extractJSON(text, isArray = true) {
   const clean = text.replace(/```json|```/g, '').trim();
-  const start = clean.indexOf(isArray ? '[' : '{');
-  const end = clean.lastIndexOf(isArray ? ']' : '}');
-  if (start === -1) throw new Error('No JSON found');
+  const opener = isArray ? '[' : '{';
+  const closer = isArray ? ']' : '}';
+  // Try to find JSON array/object anywhere in the text
+  let depth = 0, start = -1, end = -1;
+  for (let i = 0; i < clean.length; i++) {
+    if (clean[i] === opener) {
+      if (start === -1) start = i;
+      depth++;
+    } else if (clean[i] === closer) {
+      depth--;
+      if (depth === 0 && start !== -1) { end = i; break; }
+    }
+  }
+  if (start === -1 || end === -1) {
+    console.error('Raw response:', text.substring(0, 500));
+    throw new Error('No JSON found');
+  }
   return JSON.parse(clean.substring(start, end + 1));
 }
 
