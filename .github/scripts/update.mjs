@@ -95,8 +95,8 @@ async function updateNews() {
 
 async function main() {
   await updateOutbreaks();
-  console.log('Waiting 20s...');
-  await new Promise(r => setTimeout(r, 20000));
+  console.log('Waiting 65s...');
+  await new Promise(r => setTimeout(r, 65000));
   await updateNews();
   console.log('Done!');
 }
