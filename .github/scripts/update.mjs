@@ -1,4 +1,4 @@
-const CLAUDE_KEY = process.env.CLAUDE_API_KEY;
+onst CLAUDE_KEY = process.env.CLAUDE_API_KEY;
 const SUPA_URL = process.env.SUPABASE_URL;
 const SUPA_KEY = process.env.SUPABASE_SERVICE_KEY;
 
@@ -140,6 +140,8 @@ Return ONLY the JSON array, no other text.`;
 // ═══ MAIN ═══
 async function main() {
   const outbreakCount = await updateOutbreaks();
+  console.log('Waiting 15 seconds before news fetch...');
+  await new Promise(r => setTimeout(r, 15000));
   const newsCount = await updateNews();
   console.log(`Done! ${outbreakCount} outbreaks + ${newsCount} news items updated.`);
 }
