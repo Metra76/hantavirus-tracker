@@ -60,14 +60,21 @@ STATUS RULES — apply these strictly:
 
 MV Hondius 2026 specific rules:
 - South Africa: Dutch woman DIED in Johannesburg hospital, lab-confirmed = "active"
-- Switzerland: lab-confirmed patient in Zurich = "active"  
+- Switzerland: lab-confirmed patient in Zurich = "active"
 - Netherlands: evacuated patients, confirmed = "active"
 - Germany: confirmed death on board = "active"
-- Singapore, France, Canada, UK contacts: NOT yet confirmed = "suspected"
+- Spain Catalonia: 2 contacts on Apr 25 flight = "suspected"
+- Spain Alicante: woman hospitalized, contact of Dutch woman = "suspected"
+- Italy: 4 contacts in Calabria/Campania/Tuscany/Veneto on KLM flight = "suspected"
+- France: 8 contacts on Apr 25 Saint Helena-Johannesburg flight = "suspected"
+- Singapore: 2 contacts TESTED NEGATIVE, still include as suspected resolved
+- USA: 3 contacts in Georgia/Arizona/California = "suspected"
+- UK: any identified contacts = "suspected"
+- Canada: any identified contacts = "suspected"
 
 Each item: {"country":"string","region":"america|europe|asia|africa","lat":0,"lng":0,"cases":0,"deaths":0,"lethality":0,"year":2026,"year_label":"string","status":"active|suspected|historic","strain":"Andes|Sin Nombre|Hantaan|Seoul|Puumala|Dobrava|Juquitiba|Araraquara|Choclo|Laguna Negra|Río Mamoré","p2p":false,"note":"string max 200 chars","highlight":false}
 
-Include: Argentina 2020-2026, Chile, Brazil, USA, Germany, Finland, Sweden, Russia, China, South Korea, Panama, Bolivia, Paraguay, MV Hondius 2026, Switzerland, South Africa, Netherlands, UK, Singapore, France, Canada. Start response with [ immediately.`;
+Include ALL: Argentina 2020-2026, Chile, Brazil, USA, Germany, Finland, Sweden, Russia, China, South Korea, Panama, Bolivia, Paraguay, MV Hondius 2026, Switzerland, South Africa, Netherlands, Germany cruise, Spain Catalonia, Spain Alicante, Italy, France, Singapore, Canada, UK. Start response with [ immediately.`;
 
   const r = await callClaude(prompt);
   if (r.error) throw new Error(r.error.message);
