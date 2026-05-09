@@ -734,7 +734,7 @@ const DATA=[
 ];
 
 // ═══ MAP ═══
-const map=L.map('map',{center:[20,10],zoom:2,minZoom:2,maxZoom:8});
+const map=L.map('map',{center:[20,10],zoom:2,minZoom:2,maxZoom:8,dragging:true,tap:true,tapTolerance:15});
 L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{attribution:'©OSM ©CartoDB',subdomains:'abcd',maxZoom:19}).addTo(map);
 
 let markers=[],activeRegion='all',activeYear=2026,searchTerm='',currentView='map';
