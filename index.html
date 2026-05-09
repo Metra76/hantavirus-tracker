@@ -1216,8 +1216,12 @@ document.getElementById('clock').textContent=new Date().toISOString().replace('T
 
 // ═══ SWIPE MOBILE ═══
 let touchStartX=0;
-document.addEventListener('touchstart',e=>{touchStartX=e.touches[0].clientX;},{passive:true});
+document.addEventListener('touchstart',e=>{
+  if(e.target.closest('#map-panel'))return;
+  touchStartX=e.touches[0].clientX;
+},{passive:true});
 document.addEventListener('touchend',e=>{
+  if(e.target.closest('#map-panel'))return;
   const dx=e.changedTouches[0].clientX-touchStartX;
   if(Math.abs(dx)<60)return;
   const tabs=['map','strains','news','about'];
