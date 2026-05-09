@@ -122,10 +122,11 @@ async function updateNews() {
 
 async function main() {
   await updateOutbreaks();
-  console.log('Waiting 65s...');
-  await new Promise(r => setTimeout(r, 65000));
+  console.log('Waiting 90s...');
+  await new Promise(r => setTimeout(r, 90000));
   await updateNews();
   console.log('Done!');
 }
 
 main().catch(e => { console.error('Fatal:', e.message); process.exit(1); });
+
