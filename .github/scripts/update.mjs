@@ -59,7 +59,7 @@ STATUS RULES — apply these strictly:
 - "historic" = past seasons, not currently active
 
 COUNTRY NAMING RULES — use exactly these names:
-- MV Hondius cruise ship = country "Atlantic / MV Hondius", lat: 28.0, lng: -16.5, region: "america"
+- MV Hondius cruise ship = country "Atlantic / MV Hondius", lat 28.0, lng -16.5, region america
 - All Spain contacts = country "Spain" (combine all into one entry)
 - All France contacts = country "France"
 - All Italy contacts = country "Italy"
@@ -69,9 +69,6 @@ COUNTRY NAMING RULES — use exactly these names:
 - Germany cruise death = country "Germany (cruise)"
 - Chile contacts = country "Chile — contacts"
 - Canada contacts = country "Canada — contacts"
-
-MANDATORY ENTRY — always include this regardless of what you find:
-{"country":"Atlantic / MV Hondius","region":"america","lat":28.0,"lng":-16.5,"cases":6,"deaths":3,"lethality":50,"year":2026,"year_label":"May 2026","status":"active","strain":"Andes","p2p":true,"note":"ACTIVE. Anchored Tenerife May 10. Evacuation underway. 6 confirmed Andes, 2 suspected, 3 deaths. 151 people from 23 nationalities.","highlight":true}
 
 SUSPECTED CASES RULE: Always set cases >= 1 for suspected entries so they appear on the map.
 
