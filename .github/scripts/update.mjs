@@ -59,13 +59,16 @@ STATUS RULES — apply these strictly:
 - "historic" = past seasons, not currently active
 
 COUNTRY NAMING RULES — use exactly these names:
-- All Spain contacts = country "Spain" (combine Catalonia + Alicante into one entry)
+- MV Hondius cruise ship = country "Atlantic / MV Hondius", lat 28.0, lng -16.5, region america
+- All Spain contacts = country "Spain" (combine all into one entry)
 - All France contacts = country "France"
 - All Italy contacts = country "Italy"
 - All Singapore contacts = country "Singapore"
 - All USA contacts = country "USA — contacts"
 - Netherlands cruise patients = country "Netherlands (cruise)"
 - Germany cruise death = country "Germany (cruise)"
+- Chile contacts = country "Chile — contacts"
+- Canada contacts = country "Canada — contacts"
 
 SUSPECTED CASES RULE: Always set cases >= 1 for suspected entries so they appear on the map.
 
