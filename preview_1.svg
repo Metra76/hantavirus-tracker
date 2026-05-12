@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#060e1a"/>
+      <stop offset="100%" stop-color="#030810"/>
+    </radialGradient>
+    <radialGradient id="glow1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ff2233" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#ff2233" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur1"><feGaussianBlur stdDeviation="18"/></filter>
+    <filter id="blur2"><feGaussianBlur stdDeviation="8"/></filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  
+  <!-- Scanlines -->
+  <rect width="1200" height="630" fill="url(#scanlines)" opacity="0.04"/>
+
+  <!-- Glow orbs -->
+  <ellipse cx="200" cy="315" rx="300" ry="200" fill="#ff2233" opacity="0.06" filter="url(#blur1)"/>
+  <ellipse cx="1000" cy="315" rx="200" ry="150" fill="#ff8800" opacity="0.05" filter="url(#blur1)"/>
+
+  <!-- Top red line -->
+  <rect x="0" y="0" width="1200" height="3" fill="#ff2233" opacity="0.8"/>
+  <rect x="0" y="627" width="1200" height="3" fill="#ff2233" opacity="0.4"/>
+
+  <!-- Biohazard icon -->
+  <text x="80" y="140" font-family="serif" font-size="90" fill="#ff2233" opacity="0.9">☣</text>
+
+  <!-- Main title -->
+  <text x="200" y="110" font-family="Arial Black, sans-serif" font-size="58" font-weight="900" fill="#ff2233" letter-spacing="4">HANTAVIRUS</text>
+  <text x="200" y="175" font-family="Arial Black, sans-serif" font-size="58" font-weight="900" fill="#e8f0f8" letter-spacing="4">GLOBAL TRACKER</text>
+
+  <!-- Subtitle -->
+  <text x="200" y="220" font-family="monospace" font-size="16" fill="#3a5a78" letter-spacing="3">WORLDWIDE EPIDEMIOLOGICAL SURVEILLANCE · 2020–2026</text>
+
+  <!-- Divider -->
+  <rect x="80" y="250" width="1040" height="1" fill="#1a3050"/>
+
+  <!-- Alert bar -->
+  <rect x="80" y="268" width="1040" height="40" fill="#ff2233" opacity="0.1" rx="3"/>
+  <rect x="80" y="268" width="4" height="40" fill="#ff2233"/>
+  <text x="100" y="294" font-family="monospace" font-size="14" fill="#ff2233" letter-spacing="2">● ACTIVE P2P OUTBREAK · MV HONDIUS · ANDES STRAIN CONFIRMED · HUMAN-TO-HUMAN TRANSMISSION</text>
+
+  <!-- Stats row -->
+  <g transform="translate(80, 340)">
+    <!-- Stat 1 -->
+    <rect width="180" height="90" fill="#060e1a" stroke="#1a3050" stroke-width="1" rx="3"/>
+    <text x="90" y="45" text-anchor="middle" font-family="Arial Black" font-size="36" font-weight="900" fill="#ff2233">11</text>
+    <text x="90" y="68" text-anchor="middle" font-family="monospace" font-size="11" fill="#3a5a78" letter-spacing="1">HONDIUS CASES</text>
+    
+    <!-- Stat 2 -->
+    <rect x="195" width="180" height="90" fill="#060e1a" stroke="#1a3050" stroke-width="1" rx="3"/>
+    <text x="285" y="45" text-anchor="middle" font-family="Arial Black" font-size="36" font-weight="900" fill="#dd2200">3</text>
+    <text x="285" y="68" text-anchor="middle" font-family="monospace" font-size="11" fill="#3a5a78" letter-spacing="1">DEATHS</text>
+
+    <!-- Stat 3 -->
+    <rect x="390" width="180" height="90" fill="#060e1a" stroke="#1a3050" stroke-width="1" rx="3"/>
+    <text x="480" y="45" text-anchor="middle" font-family="Arial Black" font-size="36" font-weight="900" fill="#ff8800">33%</text>
+    <text x="480" y="68" text-anchor="middle" font-family="monospace" font-size="11" fill="#3a5a78" letter-spacing="1">CASE FATALITY</text>
+
+    <!-- Stat 4 -->
+    <rect x="585" width="180" height="90" fill="#060e1a" stroke="#1a3050" stroke-width="1" rx="3"/>
+    <text x="675" y="45" text-anchor="middle" font-family="Arial Black" font-size="36" font-weight="900" fill="#ffdd00">9+</text>
+    <text x="675" y="68" text-anchor="middle" font-family="monospace" font-size="11" fill="#3a5a78" letter-spacing="1">COUNTRIES</text>
+
+    <!-- Stat 5 -->
+    <rect x="780" width="180" height="90" fill="#060e1a" stroke="#1a3050" stroke-width="1" rx="3"/>
+    <text x="870" y="45" text-anchor="middle" font-family="Arial Black" font-size="36" font-weight="900" fill="#cc66ff">P2P</text>
+    <text x="870" y="68" text-anchor="middle" font-family="monospace" font-size="11" fill="#3a5a78" letter-spacing="1">CONFIRMED</text>
+
+    <!-- Stat 6 -->
+    <rect x="975" width="145" height="90" fill="#060e1a" stroke="#1a3050" stroke-width="1" rx="3"/>
+    <text x="1047" y="45" text-anchor="middle" font-family="Arial Black" font-size="30" font-weight="900" fill="#33bbff">ANDES</text>
+    <text x="1047" y="68" text-anchor="middle" font-family="monospace" font-size="11" fill="#3a5a78" letter-spacing="1">STRAIN</text>
+  </g>
+
+  <!-- Country flags row -->
+  <g transform="translate(80, 460)">
+    <text font-family="monospace" font-size="13" fill="#7a9ab8" letter-spacing="1">
+      <tspan>🇳🇱 NL</tspan>
+      <tspan dx="15">🇩🇪 DE</tspan>
+      <tspan dx="15">🇿🇦 ZA</tspan>
+      <tspan dx="15">🇨🇭 CH</tspan>
+      <tspan dx="15">🇬🇧 UK</tspan>
+      <tspan dx="15">🇫🇷 FR</tspan>
+      <tspan dx="15">🇺🇸 US</tspan>
+      <tspan dx="15">🇪🇸 ES</tspan>
+      <tspan dx="15">🇮🇹 IT</tspan>
+      <tspan dx="15">🇸🇬 SG</tspan>
+      <tspan dx="15">🇨🇦 CA</tspan>
+      <tspan dx="15" fill="#ff2233">+ MORE</tspan>
+    </text>
+  </g>
+
+  <!-- Bottom bar -->
+  <rect x="0" y="560" width="1200" height="70" fill="#060e1a"/>
+  <rect x="0" y="560" width="1200" height="1" fill="#1a3050"/>
+  
+  <!-- Strain legend -->
+  <circle cx="100" cy="595" r="6" fill="#ff2233"/>
+  <text x="114" y="600" font-family="monospace" font-size="12" fill="#7a9ab8">ANDES</text>
+  <circle cx="195" cy="595" r="6" fill="#ff8800"/>
+  <text x="209" y="600" font-family="monospace" font-size="12" fill="#7a9ab8">SIN NOMBRE</text>
+  <circle cx="335" cy="595" r="6" fill="#ffdd00"/>
+  <text x="349" y="600" font-family="monospace" font-size="12" fill="#7a9ab8">HANTAAN</text>
+  <circle cx="460" cy="595" r="6" fill="#33bbff"/>
+  <text x="474" y="600" font-family="monospace" font-size="12" fill="#7a9ab8">PUUMALA</text>
+
+  <!-- URL -->
+  <text x="1120" y="600" text-anchor="end" font-family="monospace" font-size="13" fill="#3a5a78" letter-spacing="1">hantavirusglobaltracker.com</text>
+</svg>
